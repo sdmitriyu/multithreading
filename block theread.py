@@ -8,15 +8,15 @@ class BankAccount:
     def deposit(self, amount):
         with self.lock:
             self.balance += amount
-            print(f"Deposited {amount}, new balance is {self.balance}")
+            print(f"Пополнение {amount}, баланс {self.balance}")
 
     def withdraw(self, amount):
         with self.lock:
             if self.balance >= amount:
                 self.balance -= amount
-                print(f"Withdrew {amount}, new balance is {self.balance}")
+                print(f"Снятие {amount}, баланс {self.balance}")
             else:
-                print("Insufficient funds")
+                print("Недостаточно средств")
 
 def deposit_task(account, amount):
     for _ in range(5):
